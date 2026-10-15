@@ -91,7 +91,9 @@ function pms_image( $file, $title ) {
 	if ( $found ) {
 		return (int) $found[0];
 	}
-	$src = WP_PLUGIN_DIR . '/pomelo-blocks/assets/' . $file;
+	// Ask the blocks plugin where it lives: Playground names the folder after the GitHub path
+	// (https-github.com-...-plugins-pomelo-blocks), so a hard-coded "pomelo-blocks" finds nothing.
+	$src = ( defined( 'PMB_DIR' ) ? PMB_DIR : WP_PLUGIN_DIR . '/pomelo-blocks' ) . '/assets/' . $file;
 	if ( ! file_exists( $src ) ) {
 		pms_log( "Missing image: $src" );
 		return 0;
