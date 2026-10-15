@@ -1,0 +1,88 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"meta": {
+		"title": "Pomelo Coffee Roasters: WooCommerce shop concept for a specialty coffee roaster",
+		"description": "Block theme and WooCommerce shop for a specialty coffee roaster: one colour per origin, a hero with tasting-note tags, a tasting-notes ticker, coffee cards with real add to cart, a subscription band and brew-method tiles. Checkout works with a demo payment that takes no money. Built for a fictional company.",
+		"author": "hugooblak",
+		"categories": [
+			"Themes",
+			"WooCommerce"
+		]
+	},
+	"landingPage": "/",
+	"preferredVersions": {
+		"php": "8.3",
+		"wp": "latest"
+	},
+	"features": {
+		"networking": true
+	},
+	"login": true,
+	"steps": [
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "wordpress.org/plugins",
+				"slug": "woocommerce"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "installTheme",
+			"themeData": {
+				"resource": "git:directory",
+				"url": "https://github.com/hugooblak/pomelo-demo",
+				"ref": "main",
+				"refType": "branch",
+				"path": "theme/pomelo"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "git:directory",
+				"url": "https://github.com/hugooblak/pomelo-demo",
+				"ref": "main",
+				"refType": "branch",
+				"path": "plugins/pomelo-blocks"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "git:directory",
+				"url": "https://github.com/hugooblak/pomelo-demo",
+				"ref": "main",
+				"refType": "branch",
+				"path": "plugins/pomelo-demo-notes"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "mkdir",
+			"path": "/wordpress/wp-content/pomelo-setup"
+		},
+		{
+			"step": "writeFile",
+			"path": "/wordpress/wp-content/pomelo-setup/setup.php",
+			"data": {
+				"resource": "url",
+				"url": "https://raw.githubusercontent.com/hugooblak/pomelo-demo/main/content/setup.php"
+			}
+		},
+		{
+			"step": "runPHP",
+			"code": "<?php require '/wordpress/wp-load.php'; require '/wordpress/wp-content/pomelo-setup/setup.php';"
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "pomelo/notes-ticker",
+	"title": "Tasting-notes ticker",
+	"category": "design",
+	"icon": "leftright",
+	"description": "A sage band of tasting notes that drifts sideways at a calm, steady pace and stops while the pointer is on it.",
+	"textdomain": "pomelo-blocks",
+	"attributes": {
+		"label": { "type": "string", "default": "Tasting notes" },
+		"notes": { "type": "string", "default": "Pistachio | Creamy and nutty | pistachio\nJasmine | Floral and light | jasmine\nMeyer lemon | Bright and citrus | lemon\nRed apple | Crisp and juicy | apple\nMilk chocolate | Smooth and sweet | chocolate\nCane sugar | Clean and balanced | cane" }
+	},
+	"supports": { "html": false, "reusable": false, "align": [ "full" ] },
+	"render": "file:./render.php"
+}

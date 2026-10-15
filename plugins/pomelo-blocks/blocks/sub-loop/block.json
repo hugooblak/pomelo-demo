@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "pomelo/sub-loop",
+	"title": "Subscription loop (bean on a loop)",
+	"category": "design",
+	"icon": "update",
+	"description": "A line-drawn coffee bean walks a dashed loop and drops a bag at the front each lap. The rhythm buttons change its pace and the days shown under it.",
+	"textdomain": "pomelo-blocks",
+	"attributes": {
+		"caption": { "type": "string", "default": "Next bag in" },
+		"days": { "type": "string", "default": "days" },
+		"options": { "type": "string", "default": "Every 2 weeks | 14\nEvery 4 weeks | 28" },
+		"groupLabel": { "type": "string", "default": "Delivery rhythm" }
+	},
+	"supports": { "html": false, "reusable": false, "multiple": false, "align": false },
+	"render": "file:./render.php"
+}

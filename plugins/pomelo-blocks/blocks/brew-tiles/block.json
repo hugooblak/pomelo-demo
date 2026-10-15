@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "pomelo/brew-tiles",
+	"title": "Brew-method tiles",
+	"category": "design",
+	"icon": "coffee",
+	"description": "Five pastel tiles, each with a line-drawn brewer that fills with coffee as it comes into view and again on hover. Each tile links to the shop.",
+	"textdomain": "pomelo-blocks",
+	"attributes": {
+		"tiles": { "type": "string", "default": "Pour over | sage | pourover\nAeroPress | butter | aeropress\nChemex | sky | chemex\nFrench press | peach | frenchpress\nEspresso | lilac | espresso" },
+		"link": { "type": "string", "default": "/shop/" }
+	},
+	"supports": { "html": false, "reusable": false, "align": false },
+	"render": "file:./render.php"
+}

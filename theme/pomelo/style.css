@@ -1,0 +1,191 @@
+/*
+Theme Name: Pomelo Coffee Roasters
+Theme URI: https://github.com/hugooblak/pomelo-demo
+Author: Hugo Oblak
+Description: Block theme for a specialty coffee roaster's WooCommerce shop. Colour-blocked sections in terracotta, sage, cream and ink, one colour per coffee origin, a soft serif with a clean sans. The moving parts (hero tags, ticker, coffee cards, subscription loop, brew tiles, newsletter field) are blocks in the Pomelo Coffee Roasters Blocks plugin.
+Version: 1.0.0
+Requires at least: 6.6
+Requires PHP: 7.4
+License: GPL-2.0-or-later
+Text Domain: pomelo
+*/
+
+:root{
+  --terracotta:#AE4D32; --cream:#F7EFE1; --cream-hi:#FBEDD7; --card:#FBF5EA; --ink:#1B1B1B; --olive:#5C5C42;
+  --sage:#B5B690; --rule:rgba(27,27,27,.14);
+  --serif:Fraunces,Georgia,serif; --sans:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1); --hh:88px; --gut:64px;
+}
+*,*::before,*::after{box-sizing:border-box}
+h1,h2,h3,h4,p,figure{margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:var(--hh)}
+body{background:var(--cream);color:var(--ink);font:400 18px/1.5 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:var(--serif);font-variation-settings:'SOFT' 100,'WONK' 0;text-wrap:balance}
+.wide{width:min(1320px,100% - var(--gut) * 2);margin-inline:auto}
+.wp-site-blocks>*{margin-block-start:0}
+section,footer{scroll-margin-top:var(--hh)}
+
+/* ---------- buttons: pills everywhere ---------- */
+.wp-block-buttons{gap:14px}
+.wp-block-button .wp-block-button__link,.wp-element-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 28px;border-radius:999px;font:500 14px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;text-decoration:none;transition:transform .2s var(--ease),background-color .2s}
+.wp-block-button .wp-block-button__link:hover{transform:translateY(-2px)}
+.wp-block-button.pill-cream .wp-block-button__link{background:var(--cream-hi);color:var(--ink)}
+.wp-block-button__link:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+.skip-link{position:absolute;left:-9999px}.skip-link:focus{left:12px;top:12px;background:#fff;color:var(--ink);padding:10px 14px;z-index:99}
+.arrow-link a{display:inline-flex;align-items:center;gap:8px;font:500 14px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.arrow-link a::after{content:"→";transition:transform .2s var(--ease)}
+.arrow-link a:hover::after{transform:translateX(4px)}
+
+/* ---------- header ---------- */
+header.wp-block-template-part{position:sticky;top:0;z-index:50;height:var(--hh);background:var(--cream);color:var(--ink);transition:background-color .35s var(--ease),color .35s var(--ease),box-shadow .35s var(--ease)}
+.admin-bar header.wp-block-template-part{top:32px}
+body.home header.wp-block-template-part:not(.stuck){background:var(--terracotta);color:var(--cream-hi)}
+header.stuck,body:not(.home) header.wp-block-template-part{box-shadow:0 1px 0 var(--rule)}
+.site-header{height:100%}
+.hbar{height:100%;display:flex;align-items:center;gap:40px;flex-wrap:nowrap}
+.logo{text-align:center;line-height:1;flex:none}
+.logo a{display:inline-block;font:500 10.5px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase}
+.logo strong{display:block;margin-bottom:6px;font:600 32px/1 var(--serif);letter-spacing:.04em;font-variation-settings:'SOFT' 100,'WONK' 0}
+.logo br{display:none}
+.wp-block-navigation.nav{margin-inline:auto;font:500 15px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;gap:44px}
+.wp-block-navigation.nav .wp-block-navigation-item__content{padding:8px 0;border-bottom:1.5px solid transparent}
+.wp-block-navigation.nav .wp-block-navigation-item__content:hover{border-color:currentColor}
+.wp-block-navigation__responsive-container.is-menu-open{background:var(--cream)!important;color:var(--ink)!important}
+.hr{display:flex;align-items:center;gap:14px;flex:none}
+.hr .wc-block-customer-account a,.hr .wc-block-mini-cart__button{color:inherit;padding:10px}
+.hr .wc-block-mini-cart__icon,.hr .wc-block-customer-account__account-icon{width:28px;height:28px}
+.wc-block-mini-cart__badge{background:var(--ink)!important;color:var(--cream)!important;border:0!important}
+body.home header:not(.stuck) .wc-block-mini-cart__badge{background:var(--cream-hi)!important;color:var(--ink)!important}
+
+/* ---------- hero ---------- */
+.pm-hero{background:var(--terracotta);color:var(--cream-hi);overflow:hidden}
+.hgrid{display:grid;grid-template-columns:4fr 8fr;align-items:end;gap:24px}
+.hero-copy{padding:40px 0 64px}
+.pm-hero h1{color:var(--cream-hi);line-height:.95;letter-spacing:-.02em}
+.hero-sub{margin:30px 0 38px;max-width:26ch;line-height:1.45}
+.pm-hero .wp-block-pomelo-hero-chips{margin-right:calc(var(--gut) * -1)}
+.js .pm-hero :is(h1,.hero-sub,.wp-block-buttons){transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.js .pm-hero .hero-sub{transition-delay:.25s}.js .pm-hero .wp-block-buttons{transition-delay:.4s}
+.js .pm-hero:not(.on) :is(h1,.hero-sub,.wp-block-buttons){opacity:0;transform:translateY(22px)}
+
+/* ---------- shop ---------- */
+.pm-shop{padding:56px 0 120px}
+.shop-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:28px}
+.shop-head p{color:var(--olive)}
+h2.eyebrow{font:500 13px/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+
+/* ---------- subscription band (the one dark band) ---------- */
+.pm-sub{background:var(--ink);color:var(--cream-hi);padding:64px 0 72px}
+.subgrid{display:grid;grid-template-columns:440px minmax(0,1fr) auto;align-items:center;gap:56px}
+.pm-sub h2{color:var(--cream-hi);line-height:1.08}
+.sub-copy p{margin-top:14px;max-width:34ch;color:rgba(251,237,215,.88)}
+.sub-act{display:flex;flex-direction:column;align-items:center;gap:22px}
+
+/* ---------- brew ---------- */
+.pm-brew{padding:120px 0}
+.brewgrid{display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px}
+.brew-intro h2{font-size:40px;line-height:1.08}
+.brew-intro p{color:var(--olive);margin-top:14px}
+
+/* ---------- footer ---------- */
+footer.wp-block-template-part{background:var(--terracotta);color:var(--cream-hi)}
+.footer-in{padding:96px 0 40px}
+.ftop{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px}
+.fhead{font-size:40px;line-height:1.1;max-width:14ch;color:var(--cream-hi);margin-bottom:40px}
+.fcol h3{font:500 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;margin-bottom:18px;color:var(--cream-hi)}
+.fcol ul{list-style:none;margin:0;padding:0;display:grid;gap:12px;font-size:16px}
+.fcol a:hover{text-decoration:underline;text-underline-offset:3px}
+.fbase{display:flex;justify-content:space-between;gap:24px;margin-top:80px;padding-top:24px;border-top:1px solid rgba(251,237,215,.35);font-size:14px}
+
+/* ---------- plain pages (account, 404) ---------- */
+.prose{padding:64px var(--gut) 120px}
+.prose>h1{margin-bottom:32px}
+.sec{padding:96px 0}
+.nf p{margin:20px 0 32px;max-width:40ch}
+
+/* ---------- WooCommerce: shop, product, cart, checkout ---------- */
+.woocommerce main,.woocommerce-page main,body.woocommerce-shop main,.single-product main{padding-top:56px;padding-bottom:120px}
+/* The theme's block gap is 0 (to match the static spacing), so WooCommerce's own layouts get their gaps back here. */
+.wc-block-product-template.wc-block-product-template__responsive,.wc-block-product-template{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:28px!important}
+.woocommerce-shop .wp-block-woocommerce-product-collection{margin-top:28px}
+.wp-block-woocommerce-catalog-sorting select,.orderby{border:1.5px solid var(--ink);border-radius:999px;background:transparent;padding:8px 16px;font:500 15px/1 var(--sans);color:var(--ink)}
+.single-product .wp-block-columns{gap:56px}
+.single-product .wp-block-column>*+*{margin-top:18px}
+.single-product .wp-block-post-title{font-size:clamp(36px,3.9vw,56px);line-height:1.05}
+.wp-block-woocommerce-product-meta .is-layout-flex{gap:8px 24px}
+.wc-block-breadcrumbs,.woocommerce-breadcrumb{margin-bottom:18px}
+.wp-block-woocommerce-product-details{margin-top:56px}
+.woocommerce-tabs .wc-tabs{gap:28px}
+.shop-main{padding:56px 0 120px}
+.shop-main>.wp-block-post-title{width:min(1320px,100% - var(--gut) * 2);margin:0 auto 32px}
+.wc-block-product{background:var(--card);border-radius:20px;overflow:hidden;padding-bottom:24px}
+.wc-block-product .wc-block-components-product-image{margin:0 0 18px!important}
+.wc-block-product .wc-block-components-product-image img{border-radius:0}
+.wc-block-product :is(.wp-block-post-title,.wc-block-components-product-price,.wp-block-woocommerce-product-button){padding-inline:22px}
+.wc-block-product .wp-block-post-title{font:600 22px/1.2 var(--serif)!important;margin:0 0 8px}
+.wc-block-components-product-price{color:var(--ink)}
+.wc-block-components-product-image img,.woocommerce-product-gallery img{border-radius:20px}
+.wc-block-components-button:not(.is-link),.wp-block-button__link.add_to_cart_button,.single_add_to_cart_button{border-radius:999px!important;background:var(--ink)!important;color:var(--cream)!important;font:500 14px/1 var(--sans)!important;letter-spacing:.12em;text-transform:uppercase;min-height:48px;padding:0 28px!important;border:0!important}
+.wc-block-components-button:not(.is-link):hover{background:#000!important}
+.wp-block-woocommerce-product-meta,.wc-block-breadcrumbs{font-size:15px;color:var(--olive)}
+.wc-block-components-quantity-selector,.quantity input{border-radius:999px!important}
+.wc-block-cart,.wc-block-checkout{font-size:17px}
+.wc-block-components-totals-wrapper,.wc-block-components-sidebar-layout .wc-block-components-main{color:var(--ink)}
+.wc-block-components-text-input input,.wc-block-components-combobox .components-combobox-control__input,.wc-blocks-components-select__select{border-radius:12px!important;background:#fff!important}
+.wc-block-checkout__actions .wc-block-components-checkout-place-order-button{width:100%}
+.wc-block-mini-cart__drawer .components-modal__content{background:var(--cream)}
+/* WooCommerce leaves the closed cart drawer focusable while it is hidden from screen readers, so Tab could
+   land on an invisible close button. Hide it properly once it has slid away. */
+.wc-block-mini-cart__drawer[aria-hidden="true"]{visibility:hidden;transition:visibility 0s linear .35s}
+.show-password-input{min-width:24px;min-height:24px}
+.wc-block-grid__products{margin-inline:0!important}
+.wc-block-mini-cart__title{font-family:var(--serif)}
+.wc-block-components-notice-banner{border-radius:14px}
+
+/* ---------- responsive ---------- */
+@media (max-width:1180px){
+  :root{--gut:40px}
+  .wp-block-navigation.nav{gap:28px}
+  .subgrid{grid-template-columns:340px minmax(0,1fr);gap:40px}
+  .sub-act{grid-column:2;align-items:flex-start}
+  .brewgrid{grid-template-columns:minmax(0,1fr);gap:28px}
+  .brew-intro{display:flex;align-items:end;justify-content:space-between;gap:32px}
+  .brew-intro p{max-width:40ch;margin:0}
+  .ftop{grid-template-columns:1fr 1fr 1fr}
+  .fsign{grid-column:1/-1}
+  .wc-block-product-template.wc-block-product-template__responsive,.wc-block-product-template{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media (max-width:781px){.single-product .wp-block-columns{gap:28px}}
+@media (max-width:900px){
+  :root{--gut:32px;--hh:72px}
+  .logo strong{font-size:28px}
+  .wp-block-navigation.nav{order:3;margin-inline:0}
+  .hr{margin-left:auto}
+  .hgrid{grid-template-columns:minmax(0,1fr);gap:8px}
+  .hero-copy{padding:28px 0 0}
+  .pm-hero .wp-block-pomelo-hero-chips{margin:0 calc(var(--gut) * -1)}
+  .subgrid{grid-template-columns:minmax(0,1fr);gap:28px}
+  .pm-sub .wp-block-pomelo-sub-loop{max-width:420px}
+  .sub-act{grid-column:auto;flex-direction:row;flex-wrap:wrap;align-items:center}
+  .pm-shop{padding-bottom:88px}.pm-brew{padding:88px 0}
+}
+@media (max-width:560px){
+  :root{--gut:16px}
+  .shop-head{flex-direction:column;align-items:flex-start;gap:6px}
+  .brew-intro{display:block}
+  .brew-intro p{margin-top:12px}
+  .footer-in{padding:72px 0 32px}
+  .ftop{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px}
+  .fhead{font-size:32px}
+  .fbase{flex-direction:column;margin-top:56px}
+  .hr{gap:0}
+  .hbar{gap:8px;justify-content:space-between}
+  .logo strong{font-size:24px;margin-bottom:5px}
+  .logo a{font-size:8.5px;letter-spacing:.24em}
+  .hr .wc-block-customer-account a,.hr .wc-block-mini-cart__button{padding:8px}
+  .wc-block-product-template.wc-block-product-template__responsive,.wc-block-product-template{grid-template-columns:minmax(0,1fr)!important}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0s!important;transition-duration:.001ms!important;transition-delay:0s!important;scroll-behavior:auto!important}
+}

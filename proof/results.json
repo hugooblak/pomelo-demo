@@ -1,0 +1,108 @@
+{
+  "date": "2026-10-15",
+  "demo": "pomelo",
+  "results": [
+    {
+      "name": "1. Markup lint",
+      "ok": true,
+      "details": "clean"
+    },
+    {
+      "name": "2. Pages load",
+      "ok": true,
+      "details": "6 pages"
+    },
+    {
+      "name": "3. Link crawl",
+      "ok": true,
+      "details": "150 URLs checked"
+    },
+    {
+      "name": "4. Editor: no invalid blocks",
+      "ok": false,
+      "details": "templates archive-product: missing block woocommerce/breadcrumbs, templates archive-product: missing block woocommerce/product-results-count, templates archive-product: missing block woocommerce/catalog-sorting, templates taxonomy-product_attribute: missing block woocommerce/breadcrumbs, templates taxonomy-product_attribute: missing block woocommerce/product-results-count, templates taxonomy-product_attribute: missing block woocommerce/catalog-sorting, templates product-search-results: missing block woocommerce/breadcrumbs, templates product-search-results: missing block woocommerce/product-results-count, templates product-search-results: missing block woocommerce/catalog-sorting, templates order-confirmation: missing block woocommerce/order-confirmation-status, templates order-confirmation: missing block woocommerce/order-confirmation-summary, templates order-confirmation: missing block woocommerce/order-confirmation-totals-wrapper, templates order-confirmation: missing block woocommerce/order-confirmation-totals, templates order-confirmation: missing block woocommerce/order-confirmation-downloads-wrapper, templates order-confirmation: missing block woocommerce/order-confirmation-downloads, templates order-confirmation: missing block woocommerce/order-confirmation-shipping-wrapper, templates order-confirmation: missing block woocommerce/order-confirmation-shipping-address, templates order-confirmation: missing block woocommerce/order-confirmation-billing-wrapper, templates order-confirmation: missing block woocommerce/order-confirmation-billing-address, templates order-confirmation: missing block woocommerce/order-confirmation-additional-fields-wrapper, templates order-confirmation: missing block woocommerce/order-confirmation-additional-fields, templates order-confirmation: missing block woocommerce/order-confirmation-additional-information, templates single-product: missing block woocommerce/breadcrumbs, templates single-product: missing block woocommerce/product-image-gallery"
+    },
+    {
+      "name": "5. Editor font sizes = live site",
+      "ok": true,
+      "details": "24 text elements compared"
+    },
+    {
+      "name": "6. Accessibility (axe, WCAG 2.2 AA)",
+      "ok": true,
+      "details": "6 pages × 2 widths, 0 violations"
+    },
+    {
+      "name": "7. Keyboard",
+      "ok": true,
+      "details": "skip link, focus outline, FAQ, mobile menu"
+    },
+    {
+      "name": "8. Forms",
+      "ok": true,
+      "details": "9 forms: every field labelled (CF7: errors shown)"
+    },
+    {
+      "name": "9. Layout 320–1440px",
+      "ok": true,
+      "details": "no overflow, header fits"
+    },
+    {
+      "name": "10. Lighthouse (mobile)",
+      "ok": false,
+      "details": "/ {\"performance\":68,\"accessibility\":100,\"best-practices\":100,\"seo\":92}, /shop/ {\"performance\":61,\"accessibility\":100,\"best-practices\":100,\"seo\":92}, /product/brazil-mantiqueira/ {\"performance\":58,\"accessibility\":100,\"best-practices\":100,\"seo\":92}, /cart/ {\"performance\":35,\"accessibility\":100,\"best-practices\":96,\"seo\":54}, /my-account/ {\"performance\":54,\"accessibility\":100,\"best-practices\":100,\"seo\":50}"
+    },
+    {
+      "name": "11. Screenshots",
+      "ok": true,
+      "details": "15 saved to proof/screenshots"
+    }
+  ],
+  "lighthouse": [
+    {
+      "page": "/",
+      "performance": 68,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 92,
+      "lcp": "5.0 s",
+      "cls": "0"
+    },
+    {
+      "page": "/shop/",
+      "performance": 61,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 92,
+      "lcp": "6.3 s",
+      "cls": "0"
+    },
+    {
+      "page": "/product/brazil-mantiqueira/",
+      "performance": 58,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 92,
+      "lcp": "7.4 s",
+      "cls": "0"
+    },
+    {
+      "page": "/cart/",
+      "performance": 35,
+      "accessibility": 100,
+      "best-practices": 96,
+      "seo": 54,
+      "lcp": "18.7 s",
+      "cls": "0"
+    },
+    {
+      "page": "/my-account/",
+      "performance": 54,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 50,
+      "lcp": "6.3 s",
+      "cls": "0"
+    }
+  ]
+}

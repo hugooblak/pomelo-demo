@@ -1,0 +1,41 @@
+{
+  "name": "Pomelo Coffee Roasters",
+  "slug": "pomelo",
+  "prefix": "pm",
+  "github_user": "hugooblak",
+  "github_repo": "pomelo-demo",
+  "playground_url": "https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/hugooblak/pomelo-demo/main/blueprint.json",
+  "platform": "wordpress",
+  "industry": "Specialty coffee roaster / food and drink e-commerce",
+  "site_type": "WooCommerce shop: colour-blocked home page with real product cards, shop, product pages, cart drawer and a working demo checkout",
+  "features": [
+    "real WooCommerce shop: four products with photos, prices and tasting notes, shop page, product pages, cart, checkout and account",
+    "checkout works end to end with a demo payment that takes no money; every order lands in WooCommerce > Orders",
+    "one flat shipping rate, US dollars, guest checkout, no setup wizard or coming-soon page on a fresh install",
+    "home page coffee cards read the real products: add to cart in the background, a small bag arcs into the header cart and WooCommerce's cart drawer opens",
+    "one colour per origin: each product has a \"Card colour\" setting used behind its photo",
+    "hero with three bags and tasting-note tags that drop onto each bag on drawn lines",
+    "tasting-notes ticker that drifts sideways and stops under the pointer",
+    "subscription band: a line-drawn coffee bean walks a loop and drops a bag each lap; 2 or 4 week buttons change the pace",
+    "brew-method tiles: each line-drawn brewer fills with coffee as it comes into view",
+    "demo-only newsletter field: nothing is sent and it says so",
+    "WooCommerce mini-cart and account icons in the header",
+    "six small custom blocks in a plugin, everything else native blocks; tags, notes and tiles edited in block sidebars",
+    "self-hosted fonts (Fraunces, DM Sans), no third-party scripts",
+    "reduced motion shows the finished states; without JavaScript every block shows its finished state",
+    "block theme, native blocks, block patterns, no page builder",
+    "automated WCAG 2.2 AA checks (axe)"
+  ],
+  "upwork_job_id": "",
+  "pages": [
+    "/",
+    "/shop/",
+    "/product/brazil-mantiqueira/",
+    "/cart/",
+    "/my-account/",
+    "/nope/"
+  ],
+  "plugins_from_wporg": [
+    "woocommerce"
+  ]
+}

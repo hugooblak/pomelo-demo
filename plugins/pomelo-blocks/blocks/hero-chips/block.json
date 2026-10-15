@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "pomelo/hero-chips",
+	"title": "Hero bags with tasting-note tags",
+	"category": "media",
+	"icon": "tag",
+	"description": "The hero photo of the three bags. A tasting-note tag drops onto each bag on a thin line.",
+	"textdomain": "pomelo-blocks",
+	"attributes": {
+		"alt": { "type": "string", "default": "Three Pomelo coffee bags in sage, butter yellow and sky blue beside an iced coffee" },
+		"chips": { "type": "string", "default": "Pistachio | Brazil | sage | 17.2 | 6\nJasmine | Ethiopia | butter | 42 | 6\nRed apple | Colombia | sky | 65.3 | 6" }
+	},
+	"supports": { "html": false, "reusable": false, "multiple": false, "align": false },
+	"render": "file:./render.php"
+}

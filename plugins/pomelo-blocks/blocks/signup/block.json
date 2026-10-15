@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "pomelo/signup",
+	"title": "Newsletter field (demo, sends nothing)",
+	"category": "widgets",
+	"icon": "email",
+	"description": "An email field and a button. Demo only: it sends nothing and the thank-you line says so.",
+	"textdomain": "pomelo-blocks",
+	"attributes": {
+		"label": { "type": "string", "default": "Email address" },
+		"button": { "type": "string", "default": "Sign up" },
+		"error": { "type": "string", "default": "Please enter an email address like name@example.com." },
+		"thanks": { "type": "string", "default": "Thanks. This is a demo shop, so nothing was sent." }
+	},
+	"supports": { "html": false, "reusable": false, "multiple": false, "align": false },
+	"render": "file:./render.php"
+}
